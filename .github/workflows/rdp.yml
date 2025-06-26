@@ -9,7 +9,7 @@ jobs:
       - name: Download ngrok
         run: |
           Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-          Expand-Archive ngrok.zip
+          Expand-Archive ngrok.zip -Path ngrok.zip -DestinationPath
           ./ngrok.exe authtoken YOUR_AUTH_TOKEN
 
       - name: Enable RDP
