@@ -6,13 +6,11 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Download and extract ngrok
-        shell: pwsh
+      - name: Download ngrok
         run: |
-          Invoke-WebRequest https://download.ngrok.com/toolbelt/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-          Expand-Archive -Path "ngrok.zip" -DestinationPath "."
-          ./ngrok.exe authtoken "${{ secrets.NGROK_AUTH_TOKEN }}"
- 
+          Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+          Expand-Archive ngrok.zip
+          ./ngrok.exe authtoken 2z26UeQONFtCGaQgjI1Gb942T1n_37kVdudqm4hoGXLkLVF6S
 
       - name: Enable RDP
         run: |
