@@ -11,6 +11,11 @@ jobs:
         run: |
           Invoke-WebRequest https://download.ngrok.com/toolbelt/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
           Expand-Archive -Path "ngrok.zip" -DestinationPath "ngrok"
+
+          # Check that ngrok.exe exists
+          Get-ChildItem -Path "ngrok" -Recurse
+
+          # Run ngrok using full path
           $ngrokPath = Join-Path -Path $PWD -ChildPath "ngrok\\ngrok.exe"
           & "$ngrokPath" authtoken 2z26UeQONFtCGaQgjI1Gb942T1n_37kVdudqm4hoGXLkLVF6S
 
